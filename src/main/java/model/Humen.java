@@ -10,6 +10,15 @@ public class Humen {
     private double salary;
     private LocalDate birthDate;
 
+    public Humen(int ID, String name, String gender, Department department, double salary, LocalDate birthDate) {
+        this.ID = ID;
+        this.name = name;
+        this.gender = gender;
+        this.department = department;
+        this.salary = salary;
+        this.birthDate = birthDate;
+    }
+
     public int getID() {
         return ID;
     }

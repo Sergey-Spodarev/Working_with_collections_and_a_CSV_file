@@ -1,15 +1,18 @@
 package model;
 
 public class Department {
-    private int ID;
+    private final int ID;
     private String name;
+    private static int nextID = 1;
+
+    public Department(String name) {
+        this.name = name;
+        this.ID = nextID;
+        nextID++;
+    }
 
     public int getID() {
         return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getName() {
