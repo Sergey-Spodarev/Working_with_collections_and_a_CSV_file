@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class Humen {
+public class Human {
     private int ID;
     private String name;
     private String gender;
@@ -10,7 +10,7 @@ public class Humen {
     private double salary;
     private LocalDate birthDate;
 
-    public Humen(int ID, String name, String gender, Department department, double salary, LocalDate birthDate) {
+    public Human(int ID, String name, String gender, Department department, double salary, LocalDate birthDate) {
         this.ID = ID;
         this.name = name;
         this.gender = gender;
