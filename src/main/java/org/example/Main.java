@@ -16,6 +16,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Класс Main предназначен для чтения данных из CSV-файла и преобразования их в объекты типа Human.
+ * В процессе чтения данные разделяются по указанному разделителю, а также обрабатываются ошибки парсинга.
+ */
 public class Main {
     public static void main(String[] args) {
         String csvFilePath = "foreign_names.csv";
@@ -24,6 +28,13 @@ public class Main {
         people.forEach(System.out::println);
     }
 
+    /**
+     * Метод читает данные из CSV-файла и преобразует их в список объектов Human.
+     *
+     * @param csvFilePath путь к CSV-файлу
+     * @param separator символ-разделитель полей в CSV-файле
+     * @return список объектов Human, созданных на основе данных из файла
+     */
     private static List<Human> readPeopleFromCsv(String csvFilePath, char separator) {
         List<Human> list = new ArrayList<>();
         Map<String, Department> departmentMap = new HashMap<>();
@@ -40,7 +51,6 @@ public class Main {
                     isHeader = false;
                     continue;
                 }
-
                 if (nextLine.length < 6) {
                     System.err.println("Некорректная строка в CSV: " + String.join(", ", nextLine));
                     continue;
@@ -54,7 +64,6 @@ public class Main {
                     String departmentName = nextLine[4].trim();
                     double salary = Double.parseDouble(nextLine[5].trim());
                     Department department = departmentMap.computeIfAbsent(departmentName, Department::new);
-
                     Human human = new Human(id, name, gender, department, salary, birthDate);
                     list.add(human);
                 } catch (IllegalArgumentException e) {
